@@ -2,7 +2,8 @@
 
 > webpack安装
 1. webpack 4.x版本建议本地安装而不是全局全装，对于每个项目来说本地安装
-2. npm install webpack webpack-cli --save-dev  // 安装到开发依赖包，仅仅开发阶段有用
+2. npm init -y 初始化npm 包管理项目
+3. npm install webpack webpack-cli --save-dev  // 安装到开发依赖包，仅仅开发阶段有用
 
 
 > 项目目录
@@ -24,6 +25,31 @@
   },
   这里配置build 指令，当执行npm run build 指令时就会执行webpack指令来打包操作
 ```
+
+
+> 资源文件管理
+1. webpack可以打包静态资源文件，img, css, 等等
+2. 为了可以打包css，需要添加以来包 npm install style-loader css-loader --save-dev
+```
+    module: {
+        rules: [
+            {
+                test: /\.css$/,  // 正则匹配css文件
+                use: ['style-loader', 'css-loader'] //使用loader加载css文件
+            }
+        ]
+    }
+
+    webpack uses a regular expression to determine which files it should look for and serve to a specific loader. In this case any file that ends with .css will be served to the style-loader and the css-loader.
+
+    webpack使用正则表达式来匹配文件类型，然后将这些匹配的文件使用use中配置的loader使用来打包
+    这样做你就可以在js中通过import 命令来导入css文件
+    import '../style.css'
+    
+```
+
+
+
 
 
 
