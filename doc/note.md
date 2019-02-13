@@ -85,6 +85,24 @@
 
 
 
+### 生产环境 配置webpack.js
+> 开发环境和生产环境对于项目的打包需求是非常不同的，开发环境下可能需要 source map 热更新 本地服务; 生产环境要求 打包文件体积要小，更轻的source map ，优化资源文件加快加载速度。
+
+1. 为此选用配置两套 webpack配置文件，根据不同的环境来使用。抽离出公共的部分common， 开发用webpack.dev.js 生产用...prod.js
+2. 需要使用webpack-merge 这个包来将common 部分和dev或者prod部分结合起来
+
+3. npm 脚本要重新配置下
+```
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.js", //生产环境
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open --config webpack.dev.js" //开发环境
+  },
+
+```
+
+
 
 
 
