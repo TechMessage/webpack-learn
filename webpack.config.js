@@ -2,11 +2,29 @@
 const path = require('path')
 
 module.exports = {
-    entry: './src/index.js', //打包的入口文件，从这个文件开始读取，然后加载所有依赖的其他文件，然后打包
-    output: {          //输出配置，文件名和文件目录，所有的文件打包成一个js文件
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
+    // 单一入口文件
+    // entry: './src/index.js', //打包的入口文件，从这个文件开始读取，然后加载所有依赖的其他文件，然后打包
+
+
+
+    // 单个输入文件
+    // output: {          //输出配置，文件名和文件目录，所有的文件打包成一个js文件
+    //     filename: 'main.js',
+    //     path: path.resolve(__dirname, 'dist')
+    // },
+
+    // 多个入口文件
+    entry: {
+        index: './src/index.js',
+        say: './src/say.js'
     },
+
+    // 多个输出js文件
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname,'dist')
+    },
+
 
     module: {
         rules: [
@@ -33,13 +51,13 @@ module.exports = {
             },
             {
                 test: /\.(csv|tsv)$/,
-                use: [ 'csv-loader' ]
+                use: ['csv-loader']
             },
             {
                 test: /\.xml$/,
-                use: [ 'xml-loader']
+                use: ['xml-loader']
             }
-            
+
         ]
     }
 }

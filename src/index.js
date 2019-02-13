@@ -33,6 +33,16 @@ import msg from './data.xml'
 console.log(msg) //将数据转为js 对象输出
 
 
+// 导入say模块
+import say from './say';
+
+let btn = document.createElement('button')
+btn.innerText  = 'click me'
+btn.addEventListener('click', say);
+
+document.body.appendChild(btn)
+
+
 
 
 
