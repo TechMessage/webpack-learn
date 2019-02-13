@@ -60,6 +60,10 @@
 
 1. 输出目录dist管理，通常在修改源文件之后需要重新npm run build 打包，打包生成的文件都会在dist目录下，那么有些废弃的文件也会在目录下，所以在每次重新打包的时候，建议将dist目录先清理一下，clean-webpack-plugin这个插件就是负责这件事的。
 
+2. html-webpack-plugin 自动打包生成index.html并且引入 打包好的js文件
+
+
+
 
 
 
