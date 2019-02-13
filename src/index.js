@@ -1,5 +1,5 @@
 
-console.log('hello, webpack')
+// console.log('hello, webpack')
 
 // alert('hello, webpack')
 
@@ -19,4 +19,21 @@ const image = new Image();
 image.src = img;
 
 document.body.appendChild(image);
+
+
+// 导入资源文件 json
+import data from '../package.json'
+
+console.log(data) //data自动回转为js对象输出
+
+
+// 导入xml文件
+import msg from './data.xml'
+
+console.log(msg) //将数据转为js 对象输出
+
+
+
+
+
 
