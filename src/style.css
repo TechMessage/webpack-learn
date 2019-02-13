@@ -4,3 +4,7 @@
     background: url('./home.png');
     background-size: contain;
 }
+
+img {
+    max-width: 300px;
+}

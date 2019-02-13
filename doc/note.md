@@ -64,6 +64,24 @@
 
 
 
+### 打包模式 开发or生产
+
+1. 设置打包模式,mode
+
+2. 使用webpack打包只有，js文件都是压缩的，很难在去找到对应的源码位置。多个js文件最后打包成一个bundle.js，如果其中一个js文件中有错误，那么很难追踪错误的位置，在配置文件中加入source map的配置
+
+3. devtool: 'inline-source-map', 配置source map之后如果js报错，那么控制台中会给出源文件具体的位置
+
+4. 配置自动打包，当修改源文件之后，每次都需要手动npm run build 很麻烦，可以配置一些热更新的方式来自动打包
+   1. watch mode 在package.json中 script脚本下配置 "watch": "webpack --watch" 运行脚本后，会一致运行状态，监视文件变化，自动打包
+   2. npm install --save-dev webpack-dev-server 该插件相当于启动web服务，自动热重载
+   3. [详细配置](https://webpack.js.org/guides/development/)
+
+
+### HMR 热更新
+> 开发环境使用，非生产环境，不需要刷新页面就可以局部更新
+1. 插件 webpack-dev-server
+2. 更新css,js之后页面自动改版
 
 
 

@@ -4,8 +4,20 @@ const path = require('path')
 // 导入插件
 const CleanWebpackPlugin = require('clean-webpack-plugin'); //清理dist目录
 const HtmlWebpackPlugin = require('html-webpack-plugin');   //自动生成index.html并且引入打包的xxx.bundle.js
+
+const webpack = require('webpack');
  
 module.exports = {
+
+    mode: 'development',
+
+    devtool: 'inline-source-map',
+
+    devServer: {
+        contentBase: './dist', //根目录
+        hot: true     //hrm
+    },
+
     // 单一入口文件
     // entry: './src/index.js', //打包的入口文件，从这个文件开始读取，然后加载所有依赖的其他文件，然后打包
 
@@ -32,13 +44,11 @@ module.exports = {
     // plugins
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            title:'自动打包'
-        })
+        new HtmlWebpackPlugin({title:'自动打包'}),
+        new webpack.HotModuleReplacementPlugin(),//hrm 热更新
     ],
 
     
-
     module: {
         rules: [
             {
