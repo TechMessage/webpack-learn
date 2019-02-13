@@ -58,6 +58,10 @@
 > So far we've manually included all our assets in our index.html file, but as your application grows and once you start using hashes in filenames and outputting multiple bundles, it will be difficult to keep managing your index.html file manually. However, a few plugins exist that will make this process much easier to manage.
 
 
+1. 输出目录dist管理，通常在修改源文件之后需要重新npm run build 打包，打包生成的文件都会在dist目录下，那么有些废弃的文件也会在目录下，所以在每次重新打包的时候，建议将dist目录先清理一下，clean-webpack-plugin这个插件就是负责这件事的。
+
+
+
 
 
 
